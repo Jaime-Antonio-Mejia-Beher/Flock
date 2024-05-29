@@ -1,12 +1,11 @@
-
+import Landing from './pages/landign/Landing'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>Flock Project</h1>
+      <Landing />
     </>
   )
 }
