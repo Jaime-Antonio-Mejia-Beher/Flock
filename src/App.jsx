@@ -4,6 +4,8 @@ import './App.css'
 
 import {BrowserRouter as Router,Routes, Route,} from 'react-router-dom';
 
+import Login from './pages/Login';
+
 function App() {
 
   return (
@@ -12,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element = { <Layout><Landing /></Layout> }/>
           <Route path="/register"/>
-          <Route path="/login"/>
+          <Route path="/login" element = { <Layout><Login/></Layout> }/>
         </Routes>
       </Router>
     </>

@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Container, TextField, Button, Typography } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import { Container, TextField, Button, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+
 const END_POINT = 'http://localhost:8080'
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate(); 
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -20,7 +23,7 @@ const Login = () => {
 
       const { token } = response.data;
       localStorage.setItem('token', token);
-      history.push('/'); 
+      navigate.push('/'); 
     } catch (error) {
       if (error.response && error.response.data) {
         setError(error.response.data.message);
