@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-
+import { useNavigate } from 'react-router-dom';
 
 const menuContainerStyle = {
   position: 'fixed',
@@ -28,15 +28,15 @@ export default function PositionedMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false); // Track user's login state
-
+  const navigate = useNavigate(); // Use useNavigate to navigate programmatically
+  
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    setIsLoggedIn(true);
   };
-
 
   const handleLogin = () => {
     setIsLoggedIn(true);
+    navigate('/login'); // Use navigate to go to the login page
   };
 
   const handleLogout = () => {
@@ -71,29 +71,29 @@ export default function PositionedMenu() {
             </Button>
           </>
         ) : (
-            <>  
-          <Button
-            id="demo-positioned-button"
-            aria-controls={open ? 'demo-positioned-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-            onClick={handleClick}
-            style={buttonStyle}
-          >
-            Sign In
-          </Button>
+          <>
+            <Button
+              id="demo-positioned-button"
+              aria-controls={open ? 'demo-positioned-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleLogin}
+              style={buttonStyle}
+            >
+              Sign In
+            </Button>
 
-        <Button
-          id="demo-positioned-button-signup"
-          aria-controls={open ? 'demo-positioned-menu-signup' : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? 'true' : undefined}
-          onClick={handleLogin}
-          style={{ ...buttonStyle, marginRight: '20px' }}
-        >
-          Sign Up
-        </Button>
-        </>
+            <Button
+              id="demo-positioned-button-signup"
+              aria-controls={open ? 'demo-positioned-menu-signup' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClick}
+              style={{ ...buttonStyle, marginRight: '20px' }}
+            >
+              Sign Up
+            </Button>
+          </>
         )}
       </div>
     </div>
