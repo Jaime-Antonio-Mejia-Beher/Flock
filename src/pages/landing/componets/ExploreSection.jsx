@@ -1,8 +1,12 @@
 import React from 'react';
 import { Typography, Button, Container } from '@mui/material';
 import '../../../styles/ExploreSection.css'
+import {Link} from 'react-router-dom'
+
+
 
 const ExploreSection = () => {
+
   return (
     <div className="explore">
       <Container maxWidth="sm">
@@ -12,9 +16,11 @@ const ExploreSection = () => {
         <Typography variant="h5" paragraph>
           Share your travel experiences and connect with fellow explorers.
         </Typography>
+        <Link to="/signup">
         <Button variant="contained" color="primary" className="button">
           Join Now
         </Button>
+        </Link>
         <Button variant="outlined" color="secondary" className="button">
           Explore Stories
         </Button>

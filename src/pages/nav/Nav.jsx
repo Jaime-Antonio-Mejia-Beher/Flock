@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
+import {Link} from 'react-router-dom'
 
 
 const menuContainerStyle = {
@@ -45,7 +46,9 @@ export default function PositionedMenu() {
 
   return (
     <div style={menuContainerStyle}>
+      <Link to ='/'>
       <img src='/logo.svg' alt='logo' style={logoStyle} />
+      </Link>
       <div>
         {isLoggedIn ? (
           <>
