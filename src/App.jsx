@@ -1,4 +1,4 @@
-import Landing from './pages/landign/Landing'
+import Landing from './pages/landing/Landing'
 import './App.css'
 
 function App() {
